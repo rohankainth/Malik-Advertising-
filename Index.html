@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malik Advertising | 3D Boards, LED Boards & Neon Signs in Delhi</title>
+<meta name="description" content="Malik Advertising — A Complete Solution for 3D Boards, LED Boards, Neon Light Boards, Shop Signage, Acrylic Signs & Premium Illuminated Signage in New Delhi.">
+<meta name="keywords" content="3D boards Delhi, LED boards, neon signs Delhi, shop signage, advertising boards, acrylic signs, Paharganj signage">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cyan: #00f5ff;
+    --magenta: #ff00ff;
+    --electric-blue: #0066ff;
+    --purple: #9900ff;
+    --green: #00ff88;
+    --orange: #ff6600;
+    --dark-bg: #050508;
+    --card-bg: rgba(255,255,255,0.03);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--dark-bg);
+    color: #e0e0e0;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #0a0a12; }
+  ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
+
+  /* NEON TEXT */
+  .neon-cyan { color: var(--cyan); text-shadow: 0 0 7px var(--cyan), 0 0 21px var(--cyan), 0 0 42px var(--cyan); }
+  .neon-magenta { color: var(--magenta); text-shadow: 0 0 7px var(--magenta), 0 0 21px var(--magenta), 0 0 42px var(--magenta); }
+  .neon-green { color: var(--green); text-shadow: 0 0 7px var(--green), 0 0 21px var(--green), 0 0 42px var(--green); }
+  .neon-purple { color: var(--purple); text-shadow: 0 0 7px var(--purple), 0 0 21px var(--purple), 0 0 42px var(--purple); }
+
+  /* NEON GLOW ANIMATION */
+  @keyframes neonPulse {
+    0%, 100% { text-shadow: 0 0 7px var(--cyan), 0 0 21px var(--cyan), 0 0 42px var(--cyan), 0 0 82px var(--cyan); }
+    50% { text-shadow: 0 0 4px var(--cyan), 0 0 11px var(--cyan), 0 0 22px var(--cyan), 0 0 44px var(--cyan); }
+  }
+  @keyframes magentaPulse {
+    0%, 100% { text-shadow: 0 0 7px var(--magenta), 0 0 21px var(--magenta), 0 0 42px var(--magenta), 0 0 82px var(--magenta); }
+    50% { text-shadow: 0 0 4px var(--magenta), 0 0 11px var(--magenta), 0 0 22px var(--magenta); }
+  }
+  @keyframes greenPulse {
+    0%, 100% { text-shadow: 0 0 7px var(--green), 0 0 21px var(--green), 0 0 42px var(--green); }
+    50% { text-shadow: 0 0 4px var(--green), 0 0 11px var(--green); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+  @keyframes borderGlow {
+    0%, 100% { box-shadow: 0 0 5px var(--cyan), 0 0 10px var(--cyan), inset 0 0 5px rgba(0,245,255,0.1); }
+    50% { box-shadow: 0 0 10px var(--cyan), 0 0 30px var(--cyan), 0 0 60px var(--cyan), inset 0 0 10px rgba(0,245,255,0.2); }
+  }
+  @keyframes magentaBorderGlow {
+    0%, 100% { box-shadow: 0 0 5px var(--magenta), 0 0 10px var(--magenta), inset 0 0 5px rgba(255,0,255,0.1); }
+    50% { box-shadow: 0 0 10px var(--magenta), 0 0 30px var(--magenta), inset 0 0 10px rgba(255,0,255,0.2); }
+  }
+  @keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+
+  .animate-neon-pulse { animation: neonPulse 2s ease-in-out infinite; }
+  .animate-magenta-pulse { animation: magentaPulse 2.5s ease-in-out infinite; }
+  .animate-green-pulse { animation: greenPulse 3s ease-in-out infinite; }
+  .animate-float { animation: float 4s ease-in-out infinite; }
+  .animate-border-glow { animation: borderGlow 2s ease-in-out infinite; }
+  .animate-magenta-border { animation: magentaBorderGlow 2.5s ease-in-out infinite; }
+
+  /* HERO 3D TEXT */
+  .hero-title {
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    background: linear-gradient(135deg, #00f5ff 0%, #ff00ff 50%, #9900ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(0,245,255,0.8)) drop-shadow(0 0 40px rgba(255,0,255,0.5));
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .hero-3d-text {
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    color: var(--cyan);
+    text-shadow:
+      1px 1px 0 #006677,
+      2px 2px 0 #005566,
+      3px 3px 0 #004455,
+      4px 4px 0 #003344,
+      5px 5px 0 #002233,
+      6px 6px 0 #001122,
+      0 0 20px var(--cyan),
+      0 0 40px var(--cyan),
+      0 0 80px rgba(0,245,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* GRID BACKGROUND */
+  .cyber-grid {
+    background-image:
+      linear-gradient(rgba(0,245,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,245,255,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 8s linear infinite;
+  }
+
+  /* GLASS CARD */
+  .glass-card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,245,255,0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  .glass-card:hover {
+    background: rgba(0,245,255,0.05);
+    border-color: var(--cyan);
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0,245,255,0.3), 0 0 40px rgba(0,245,255,0.1);
+  }
+  .glass-card-magenta {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,0,255,0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  .glass-card-magenta:hover {
+    background: rgba(255,0,255,0.05);
+    border-color: var(--magenta);
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255,0,255,0.3), 0 0 40px rgba(255,0,255,0.1);
+  }
+
+  /* NAVBAR */
+  #navbar {
+    background: rgba(5,5,8,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,245,255,0.15);
+    transition: all 0.3s ease;
+  }
+  #navbar.scrolled {
+    background: rgba(5,5,8,0.98);
+    border-bottom-color: rgba(0,245,255,0.4);
+  }
+  .nav-link {
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #aaa;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 1px;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover { color: var(--cyan); }
+  .nav-link:hover::after { width: 100%; }
+
+  /* CTA BUTTONS */
+  .btn-cyan {
+    background: transparent;
+    color: var(--cyan);
+    border: 1.5px solid var(--cyan);
+    box-shadow: 0 0 10px rgba(0,245,255,0.3), inset 0 0 10px rgba(0,245,255,0.05);
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-cyan:hover {
+    background: rgba(0,245,255,0.1);
+    box-shadow: 0 0 20px rgba(0,245,255,0.6), 0 0 40px rgba(0,245,255,0.3), inset 0 0 20px rgba(0,245,255,0.1);
+    transform: translateY(-2px);
+  }
+  .btn-magenta {
+    background: transparent;
+    color: var(--magenta);
+    border: 1.5px solid var(--magenta);
+    box-shadow: 0 0 10px rgba(255,0,255,0.3), inset 0 0 10px rgba(255,0,255,0.05);
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-magenta:hover {
+    background: rgba(255,0,255,0.1);
+    box-shadow: 0 0 20px rgba(255,0,255,0.6), 0 0 40px rgba(255,0,255,0.3), inset 0 0 20px rgba(255,0,255,0.1);
+    transform: translateY(-2px);
+  }
+  .btn-green {
+    background: rgba(0,255,136,0.1);
+    color: var(--green);
+    border: 1.5px solid var(--green);
+    box-shadow: 0 0 10px rgba(0,255,136,0.3);
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-green:hover {
+    background: rgba(0,255,136,0.2);
+    box-shadow: 0 0 20px rgba(0,255,136,0.5), 0 0 40px rgba(0,255,136,0.2);
+    transform: translateY(-2px);
+  }
+
+  /* SECTION HEADINGS */
+  .section-tag {
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    text-shadow: 0 0 10px var(--cyan);
+  }
+  .section-heading {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* SERVICE CARDS */
+  .service-icon {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  /* PORTFOLIO */
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(0,245,255,0.15);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .portfolio-item:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px rgba(0,245,255,0.3);
+    transform: scale(1.02);
+  }
+  .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+  .portfolio-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,245,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* TESTIMONIAL */
+  .testimonial-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(153,0,255,0.25);
+    border-radius: 12px;
+    padding: 28px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px; left: 20px;
+    font-size: 80px;
+    color: var(--purple);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+  .testimonial-card:hover {
+    border-color: var(--purple);
+    box-shadow: 0 0 20px rgba(153,0,255,0.2);
+  }
+
+  /* CONTACT FORM */
+  .form-input {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,245,255,0.2);
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    padding: 12px 16px;
+    width: 100%;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+  .form-input:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 10px rgba(0,245,255,0.2);
+    background: rgba(0,245,255,0.03);
+  }
+  .form-input::placeholder { color: rgba(255,255,255,0.3); }
+
+  /* WHATSAPP FLOAT */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 9999;
+  }
+  .whatsapp-main-btn {
+    width: 60px; height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+    transition: all 0.3s ease;
+    font-size: 28px;
+  }
+  .whatsapp-main-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 30px rgba(37,211,102,0.7);
+  }
+  .whatsapp-options {
+    position: absolute;
+    bottom: 70px; right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  .whatsapp-options.open { display: flex; }
+  .whatsapp-option {
+    display: flex; align-items: center; gap: 10px;
+    background: #1a1a2e;
+    border: 1px solid #25D366;
+    border-radius: 30px;
+    padding: 10px 16px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(37,211,102,0.2);
+  }
+  .whatsapp-option:hover {
+    background: rgba(37,211,102,0.15);
+    box-shadow: 0 0 15px rgba(37,211,102,0.4);
+  }
+  .wa-dot {
+    width: 10px; height: 10px;
+    background: #25D366;
+    border-radius: 50%;
+    animation: greenPulse 2s infinite;
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* SCANLINE EFFECT */
+  .scanline-overlay {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* HERO PARTICLES */
+  .particle {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: var(--cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--cyan);
+    animation: float var(--dur, 4s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+
+  /* DIVIDER */
+  .neon-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan), var(--magenta), var(--purple), transparent);
+    box-shadow: 0 0 10px rgba(0,245,255,0.5);
+  }
+
+  /* MAP PLACEHOLDER */
+  .map-placeholder {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(135deg, #0a0a1a, #0d0d22);
+    border: 1px solid rgba(0,245,255,0.2);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* MOBILE MENU */
+  #mobile-menu { display: none; }
+  #mobile-menu.open { display: block; }
+
+  /* STAR RATING */
+  .stars { color: #ffd700; text-shadow: 0 0 6px rgba(255,215,0,0.6); }
+
+  /* SECTION SEPARATOR DOTS */
+  .sep-dots { letter-spacing: 8px; color: var(--cyan); opacity: 0.5; }
+
+  /* WHY US ICON BOX */
+  .why-icon {
+    width: 56px; height: 56px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  /* COUNTER ANIMATION */
+  .counter { font-family: 'Orbitron', monospace; }
+
+  @media (max-width: 768px) {
+    .hero-3d-text { font-size: clamp(28px, 8vw, 56px); letter-spacing: 1px; }
+    .hero-title { font-size: clamp(18px, 5vw, 36px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4 px-4 md:px-8">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- LOGO -->
+    <a href="#home" class="flex items-center gap-3">
+      <div style="width:38px;height:38px;border:2px solid var(--cyan);border-radius:6px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px rgba(0,245,255,0.5);">
+        <span style="font-family:'Orbitron',monospace;font-size:14px;font-weight:900;color:var(--cyan);">M</span>
+      </div>
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:14px;font-weight:700;color:#fff;letter-spacing:2px;line-height:1.1;">MALIK</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:10px;letter-spacing:3px;color:var(--cyan);text-shadow:0 0 8px var(--cyan);">ADVERTISING</div>
+      </div>
+    </a>
+
+    <!-- DESKTOP NAV -->
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+
+    <!-- CALL BUTTONS -->
+    <div class="hidden md:flex items-center gap-3">
+      <a href="tel:01147093060" class="btn-cyan" style="padding:8px 16px;font-size:10px;">
+        📞 011-47093060
+      </a>
+      <a href="https://wa.me/919927364055" target="_blank" class="btn-green" style="padding:8px 16px;font-size:10px;">
+        💬 WhatsApp
+      </a>
+    </div>
+
+    <!-- HAMBURGER -->
+    <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2" onclick="toggleMenu()">
+      <span class="block w-6 h-0.5" style="background:var(--cyan);box-shadow:0 0 6px var(--cyan);"></span>
+      <span class="block w-6 h-0.5" style="background:var(--cyan);box-shadow:0 0 6px var(--cyan);"></span>
+      <span class="block w-6 h-0.5" style="background:var(--cyan);box-shadow:0 0 6px var(--cyan);"></span>
+    </button>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="lg:hidden mt-4 pb-4 border-t" style="border-color:rgba(0,245,255,0.15);">
+    <div class="flex flex-col gap-4 pt-4 px-2">
+      <a href="#home" class="nav-link" onclick="toggleMenu()">Home</a>
+      <a href="#services" class="nav-link" onclick="toggleMenu()">Services</a>
+      <a href="#portfolio" class="nav-link" onclick="toggleMenu()">Portfolio</a>
+      <a href="#about" class="nav-link" onclick="toggleMenu()">About</a>
+      <a href="#contact" class="nav-link" onclick="toggleMenu()">Contact</a>
+      <div class="flex gap-3 mt-2 flex-wrap">
+        <a href="tel:01147093060" class="btn-cyan" style="padding:8px 14px;font-size:9px;">📞 011-47093060</a>
+        <a href="https://wa.me/919927364055" target="_blank" class="btn-green" style="padding:8px 14px;font-size:9px;">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden cyber-grid" style="padding-top:80px;">
+  <!-- SCANLINES -->
+  <div class="scanline-overlay"></div>
+
+  <!-- CORNER ACCENTS -->
+  <div style="position:absolute;top:80px;left:0;width:200px;height:200px;border-top:2px solid var(--cyan);border-left:2px solid var(--cyan);opacity:0.3;pointer-events:none;"></div>
+  <div style="position:absolute;bottom:0;right:0;width:200px;height:200px;border-bottom:2px solid var(--magenta);border-right:2px solid var(--magenta);opacity:0.3;pointer-events:none;"></div>
+
+  <!-- PARTICLES -->
+  <div id="particles" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;"></div>
+
+  <!-- BACKGROUND GLOW ORBS -->
+  <div style="position:absolute;top:20%;left:10%;width:400px;height:400px;background:radial-gradient(circle,rgba(0,245,255,0.06),transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:20%;right:10%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,0,255,0.06),transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(153,0,255,0.04),transparent 70%);pointer-events:none;"></div>
+
+  <div class="relative z-10 text-center max-w-5xl mx-auto px-4">
+    <!-- EYEBROW -->
+    <div class="section-tag mb-6 animate-neon-pulse">⬡ NEW DELHI'S PREMIER SIGNAGE STUDIO ⬡</div>
+
+    <!-- MAIN 3D TITLE -->
+    <h1 class="hero-3d-text mb-2" style="font-size:clamp(36px,7vw,80px);line-height:1.1;">
+      MALIK
+    </h1>
+    <h1 class="hero-3d-text mb-4" style="font-size:clamp(36px,7vw,80px);line-height:1.1;color:var(--magenta);text-shadow:1px 1px 0 #660066,2px 2px 0 #550055,3px 3px 0 #440044,4px 4px 0 #330033,0 0 20px var(--magenta),0 0 40px var(--magenta),0 0 80px rgba(255,0,255,0.5);">
+      ADVERTISING
+    </h1>
+
+    <!-- SUBTITLE -->
+    <div style="font-family:'Orbitron',monospace;font-size:clamp(16px,3vw,26px);font-weight:600;color:#fff;letter-spacing:4px;margin-bottom:8px;text-transform:uppercase;">
+      PREMIUM <span class="neon-cyan animate-neon-pulse">3D</span> | <span class="neon-magenta animate-magenta-pulse">LED</span> | <span class="neon-green animate-green-pulse">NEON</span> BOARDS
+    </div>
+
+    <!-- TAGLINE -->
+    <p style="font-family:'Rajdhani',sans-serif;font-size:18px;letter-spacing:6px;color:rgba(255,255,255,0.6);margin-bottom:40px;text-transform:uppercase;">A COMPLETE SOLUTION</p>
+
+    <!-- CTAs -->
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="https://wa.me/919927364055?text=Hello%2C%20I%20want%20a%20quote%20for%20signage" target="_blank" class="btn-green" style="padding:14px 32px;font-size:12px;letter-spacing:2px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Get Quote on WhatsApp
+      </a>
+      <a href="#portfolio" class="btn-magenta" style="padding:14px 32px;font-size:12px;letter-spacing:2px;">
+        ◈ View Our Work
+      </a>
+      <a href="#services" class="btn-cyan" style="padding:14px 32px;font-size:12px;letter-spacing:2px;">
+        ◇ Our Services
+      </a>
+    </div>
+
+    <!-- STATS -->
+    <div class="flex flex-wrap justify-center gap-8 mt-14">
+      <div class="text-center">
+        <div class="counter neon-cyan text-3xl font-bold" data-target="500">0</div>
+        <div style="font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.5);text-transform:uppercase;">Projects Done</div>
+      </div>
+      <div style="width:1px;background:rgba(0,245,255,0.2);"></div>
+      <div class="text-center">
+        <div class="counter neon-magenta text-3xl font-bold" data-target="15">0</div>
+        <div style="font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.5);text-transform:uppercase;">Years Experience</div>
+      </div>
+      <div style="width:1px;background:rgba(255,0,255,0.2);"></div>
+      <div class="text-center">
+        <div class="counter neon-green text-3xl font-bold" data-target="300">0</div>
+        <div style="font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.5);text-transform:uppercase;">Happy Clients</div>
+      </div>
+      <div style="width:1px;background:rgba(0,255,136,0.2);"></div>
+      <div class="text-center">
+        <div class="neon-cyan text-3xl font-bold" style="font-family:'Orbitron',monospace;">24/7</div>
+        <div style="font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.5);text-transform:uppercase;">Support</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCROLL INDICATOR -->
+  <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);text-align:center;animation:float 2s ease-in-out infinite;">
+    <div style="font-family:'Orbitron',monospace;font-size:9px;letter-spacing:3px;color:rgba(0,245,255,0.5);margin-bottom:8px;">SCROLL</div>
+    <div style="width:1px;height:40px;background:linear-gradient(var(--cyan),transparent);margin:0 auto;"></div>
+  </div>
+</section>
+
+<div class="neon-divider"></div>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="py-24 px-4 relative" style="background:linear-gradient(180deg,#050508 0%,#070710 100%);">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="section-tag mb-3">⬡ WHAT WE CRAFT ⬡</div>
+      <h2 class="section-heading" style="font-size:clamp(28px,5vw,48px);">OUR <span class="neon-cyan">SERVICES</span></h2>
+      <div class="sep-dots mt-4">• • •</div>
+      <p style="margin-top:16px;color:rgba(255,255,255,0.5);font-size:16px;max-width:500px;margin-left:auto;margin-right:auto;font-family:'Inter',sans-serif;">Premium signage solutions crafted with precision, passion, and cutting-edge technology for businesses across Delhi NCR.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Service 1 -->
+      <div class="glass-card p-8 reveal" style="transition-delay:0.1s;">
+        <div class="service-icon" style="background:rgba(0,245,255,0.08);border:1px solid rgba(0,245,255,0.3);">
+          <span style="font-size:28px;">🔷</span>
+        </div>
+        <h3 style="font-family:'Orbitron',monospace;font-size:15px;font-weight:700;color:var(--cyan);letter-spacing:1px;margin-bottom:10px;text-shadow:0 0 10px var(--cyan);">3D LETTER BOARDS</h3>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.7;font-family:'Inter',sans-serif;">Stunning 3D acrylic and metal letter signs with custom depth, finish & illumination. Front-lit, side-lit, or halo backlit effects available.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(0,245,255,0.1);">
+          <span style="font-family:'Orbitron',monospace;font-size:10px;color:var(--cyan);letter-spacing:2px;">LEARN MORE →</span>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="glass-card p-8 reveal" style="transition-delay:0.2s;">
+        <div class="service-icon" style="background:rgba(255,0,255,0.08);border:1px solid rgba(255,0,255,0.3);">
+          <span style="font-size:28px;">💡</span>
+        </div>
+        <h3 style="font-family:'Orbitron',monospace;font-size:15px;font-weight:700;color:var(--magenta);letter-spacing:1px;margin-bottom:10px;text-shadow:0 0 10px var(--magenta);">LED BOARDS & DISPLAYS</h3>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.7;font-family:'Inter',sans-serif;">High-brightness LED display boards for storefronts, malls & offices. Energy-efficient, weather-resistant & vibrant 24/7 visibility.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,0,255,0.1);">
+          <span style="font-family:'Orbitron',monospace;font-size:10px;color:var(--magenta);letter-spacing:2px;">LEARN MORE →</span>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="glass-card p-8 reveal" style="transition-delay:0.3s;border-color:rgba(0,255,136,0.2);">
+        <div class="service-icon" style="background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.3);">
+          <span style="font-size:28px;">✨</span>
+        </div>
+        <h3 style="font-family:'Orbitron',monospace;font-size:15px;font-weight:700;color:var(--green);letter-spacing:1px;margin-bottom:10px;text-shadow:0 0 10px var(--green);">NEON LIGHT BOARDS</h3>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.7;font-family:'Inter',sans-serif;">Classic & flex neon signage with custom colors, shapes, and animations. Perfect for restaurants, bars, studios & retail boutiques.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(0,255,136,0.1);">
+          <span style="font-family:'Orbitron',monospace;font-size:10px;color:var(--green);letter-spacing:2px;">LEARN MORE →</span>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="glass-card p-8 reveal" style="transition-delay:0.4s;border-color:rgba(153,0,255,0.2);">
+        <div class="service-icon" style="background:rgba(153,0,255,0.08);border:1px solid rgba(153,0,255,0.3);">
+          <span style="font-size:28px;">🔲</span>
+        </div>
+        <h3 style="font-family:'Orbitron',monospace;font-size:15px;font-weight:700;color:var(--purple);letter-spacing:1px;margin-bottom:10px;text-shadow:0 0 10px var(--purple);">ACRYLIC & BACKLIT SIGNS</h3>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.7;font-family:'Inter',sans-serif;">Premium acrylic panels, lightboxes & backlit displays with full-color UV printing. Crystal-clear visuals for maximum brand impact.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(153,0,255,0.1);">
+          <span style="font-family:'Orbitron',monospace;font-size:10px;color:var(--purple);letter-spacing:2px;">LEARN MORE →</span>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="glass-card p-8 reveal" style="transition-delay:0.5s;border-color:rgba(255,102,0,0.2);">
+        <div class="service-icon" style="background:rgba(255,102,0,0.08);border:1px solid rgba(255,102,0,0.3);">
+          <span style="font-size:28px;">🏪</span>
+        </div>
+        <h3 style="font-family:'Orbitron',monospace;font-size:15px;font-weight:700;letter-spacing:1px;margin-bottom:10px;" style="color:#ff6600;">SHOP FRONT SIGNAGE</h3>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.7;font-family:'Inter',sans-serif;">Complete shop branding & front signage solutions — from glow sign boards, fascia boards, to hoarding & outdoor display systems.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,102,0,0.1);">
+          <span style="font-family:'Orbitron',monospace;font-size:10px;color:#ff6600;letter-spacing:2px;">LEARN MORE →</span>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="glass-card p-8 reveal" style="transition-delay:0.6s;border-color:rgba(0,102,255,0.2);">
+        <div class="service-icon" style="background:rgba(0,102,255,0.08);border:1px solid rgba(0,102,255,0.3);">
+          <span style="font-size:28px;">🎨</span>
+        </div>
+        <h3 style="font-family:'Orbitron',monospace;font-size:15px;font-weight:700;color:#4d94ff;letter-spacing:1px;margin-bottom:10px;text-shadow:0 0 10px #0066ff;">CUSTOM AD SOLUTIONS</h3>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.7;font-family:'Inter',sans-serif;">Bespoke advertising boards, hoardings, vehicle wraps, banners & trade show displays. End-to-end design & installation included.</p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(0,102,255,0.1);">
+          <span style="font-family:'Orbitron',monospace;font-size:10px;color:#4d94ff;letter-spacing:2px;">LEARN MORE →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="neon-divider"></div>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="py-24 px-4 relative overflow-hidden" style="background:linear-gradient(135deg,#070710 0%,#0a0a18 100%);">
+  <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at center,rgba(0,245,255,0.04),transparent 70%);pointer-events:none;"></div>
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="text-center mb-16 reveal">
+      <div class="section-tag mb-3">⬡ OUR EDGE ⬡</div>
+      <h2 class="section-heading" style="font-size:clamp(28px,5vw,48px);">WHY CHOOSE <span class="neon-magenta">MALIK?</span></h2>
+      <div class="sep-dots mt-4">• • •</div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="flex gap-5 reveal" style="transition-delay:0.1s;">
+        <div class="why-icon animate-border-glow" style="background:rgba(0,245,255,0.06);border:1px solid rgba(0,245,255,0.3);">
+          <span style="font-size:24px;">🏆</span>
+        </div>
+        <div>
+          <h4 style="font-family:'Orbitron',monospace;font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:1px;margin-bottom:8px;">PREMIUM QUALITY</h4>
+          <p style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.7;font-family:'Inter',sans-serif;">We use only top-grade materials — UV-stabilized acrylics, industrial-grade LEDs, and weather-proof coatings for every project.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 reveal" style="transition-delay:0.2s;">
+        <div class="why-icon animate-magenta-border" style="background:rgba(255,0,255,0.06);border:1px solid rgba(255,0,255,0.3);">
+          <span style="font-size:24px;">⚡</span>
+        </div>
+        <div>
+          <h4 style="font-family:'Orbitron',monospace;font-size:13px;font-weight:700;color:var(--magenta);letter-spacing:1px;margin-bottom:8px;">TIMELY DELIVERY</h4>
+          <p style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.7;font-family:'Inter',sans-serif;">We respect your deadlines. Our streamlined production process ensures on-time delivery without compromising on quality.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 reveal" style="transition-delay:0.3s;">
+        <div class="why-icon" style="background:rgba(0,255,136,0.06);border:1px solid rgba(0,255,136,0.3);">
+          <span style="font-size:24px;">💎</span>
+        </div>
+        <div>
+          <h4 style="font-family:'Orbitron',monospace;font-size:13px;font-weight:700;color:var(--green);letter-spacing:1px;margin-bottom:8px;">LONG DURABILITY</h4>
+          <p style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.7;font-family:'Inter',sans-serif;">Our signage is built to withstand Delhi's extreme weather — from scorching summers to monsoons — with 3–5 year warranty on all products.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 reveal" style="transition-delay:0.4s;">
+        <div class="why-icon" style="background:rgba(153,0,255,0.06);border:1px solid rgba(153,0,255,0.3);">
+          <span style="font-size:24px;">🎯</span>
+        </div>
+        <div>
+          <h4 style="font-family:'Orbitron',monospace;font-size:13px;font-weight:700;color:var(--purple);letter-spacing:1px;margin-bottom:8px;">CREATIVE DESIGNS</h4>
+          <p style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.7;font-family:'Inter',sans-serif;">Our in-house design team creates unique, brand-aligned signage concepts. Free design consultation and 3D mockups before production.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 reveal" style="transition-delay:0.5s;">
+        <div class="why-icon" style="background:rgba(255,102,0,0.06);border:1px solid rgba(255,102,0,0.3);">
+          <span style="font-size:24px;">💰</span>
+        </div>
+        <div>
+          <h4 style="font-family:'Orbitron',monospace;font-size:13px;font-weight:700;color:#ff6600;letter-spacing:1px;margin-bottom:8px;">AFFORDABLE PREMIUM</h4>
+          <p style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.7;font-family:'Inter',sans-serif;">Premium quality doesn't mean premium prices here. We offer the best market rates without hidden charges. Transparent pricing always.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 reveal" style="transition-delay:0.6s;">
+        <div class="why-icon" style="background:rgba(0,102,255,0.06);border:1px solid rgba(0,102,255,0.3);">
+          <span style="font-size:24px;">🔧</span>
+        </div>
+        <div>
+          <h4 style="font-family:'Orbitron',monospace;font-size:13px;font-weight:700;color:#4d94ff;letter-spacing:1px;margin-bottom:8px;">END-TO-END SERVICE</h4>
+          <p style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.7;font-family:'Inter',sans-serif;">From design and fabrication to on-site installation and after-sales maintenance — we handle everything so you don't have to.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="neon-divider"></div>
+
+<!-- ============ PORTFOLIO ============ -->
+<section id="portfolio" class="py-24 px-4" style="background:linear-gradient(180deg,#0a0a18 0%,#050508 100%);">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="section-tag mb-3">⬡ OUR WORK ⬡</div>
+      <h2 class="section-heading" style="font-size:clamp(28px,5vw,48px);">PORTFOLIO <span class="neon-cyan">GALLERY</span></h2>
+      <div class="sep-dots mt-4">• • •</div>
+      <p style="margin-top:16px;color:rgba(255,255,255,0.5);font-size:16px;font-family:'Inter',sans-serif;">A showcase of our finest signage projects delivered across Delhi NCR.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Portfolio items as styled SVG placeholders -->
+      <div class="portfolio-item reveal" style="transition-delay:0.1s;aspect-ratio:4/3;">
+        <svg viewBox="0 0 400 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+          <rect width="400" height="300" fill="#080812"/>
+          <rect x="0" y="0" width="400" height="300" fill="url(#grid1)"/>
+          <defs>
+            <pattern id="grid1" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(0,245,255,0.07)" stroke-width="0.5"/>
+            </pattern>
+            <filter id="glow1"><feGaussianBlur stdDeviation="4" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <!-- 3D text simulation -->
+          <text x="50%" y="42%" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="52" fill="#002233">CAFÉ</text>
+          <text x="50%" y="42%" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="52" fill="#003344" dy="-2">CAFÉ</text>
+          <text x="50%" y="42%" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="52" fill="#00f5ff" filter="url(#glow1)" dy="-4">CAFÉ</text>
+          <text x="50%" y="62%" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="22" fill="#ff00ff" filter="url(#glow1)">AROMA</text>
+          <text x="50%" y="80%" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(0,245,255,0.6)" letter-spacing="3">3D ACRYLIC LED SIGN</text>
+        </svg>
+        <div class="portfolio-overlay"><span style="font-family:'Orbitron',monospace;font-size:12px;color:var(--cyan);letter-spacing:2px;text-shadow:0 0 10px var(--cyan);">3D CAFÉ SIGNAGE</span></div>
+      </div>
+
+      <div class="portfolio-item reveal" style="transition-delay:0.2s;aspect-ratio:4/3;">
+        <svg viewBox="0 0 400 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+          <rect width="400" height="300" fill="#0a0008"/>
+          <defs>
+            <filter id="glow2"><feGaussianBlur stdDeviation="5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect x="30" y="60" width="340" height="180" rx="8" fill="none" stroke="rgba(255,0,255,0.15)" stroke-width="1"/>
+          <text x="50%" y="44%" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="46" fill="#330033">NEON</text>
+          <text x="50%" y="44%" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="46" fill="#ff00ff" filter="url(#glow2)" dy="-3">NEON</text>
+          <text x="50%" y="63%" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="34" fill="#9900ff" filter="url(#glow2)">LOUNGE</text>
+          <path d="M 60 200 Q 200 180 340 200" stroke="#ff00ff" stroke-width="2" fill="none" filter="url(#glow2)" opacity="0.6"/>
+          <text x="50%" y="83%" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(255,0,255,0.6)" letter-spacing="3">FLEX NEON SIGN</text>
+        </svg>
+        <div class="portfolio-overlay"><span style="font-family:'Orbitron',monospace;font-size:12px;color:var(--magenta);letter-spacing:2px;text-shadow:0 0 10px var(--magenta);">NEON LOUNGE SIGN</span></div>
+      </div>
+
+      <div class="portfolio-item reveal" style="transition-delay:0.3s;aspect-ratio:4/3;">
+        <svg viewBox="0 0 400 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+          <rect width="400" height="300" fill="#030a04"/>
+          <defs>
+            <filter id="glow3"><feGaussianBlur stdDeviation="4" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect x="20" y="80" width="360" height="140" rx="4" fill="rgba(0,255,136,0.04)" stroke="rgba(0,255,136,0.2)" stroke-width="1"/>
+          <text x="50%" y="47%" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="28" fill="#00ff88" filter="url(#glow3)" letter-spacing="6">ORGANIC FARM</text>
+          <text x="50%" y="64%" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="18" fill="rgba(0,255,136,0.7)" filter="url(#glow3)" letter-spacing="8">FRESH &amp; PURE</text>
+          <line x1="60" y1="185" x2="340" y2="185" stroke="rgba(0,255,136,0.3)" stroke-width="1"/>
+          <text x="50%" y="83%" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(0,255,136,0.5)" letter-spacing="3">LED BACKLIT BOARD</text>
+        </svg>
+        <div class="portfolio-overlay"><span style="font-family:'Orbitron',monospace;font-size:12px;color:var(--green);letter-spacing:2px;text-shadow:0 0 10px var(--green);">LED BACKLIT BOARD</span></div>
+      </div>
+
+      <div class="portfolio-item reveal" style="transition-delay:0.4s;aspect-ratio:4/3;">
+        <svg viewBox="0 0 400 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+          <rect width="400" height="300" fill="#080510"/>
+          <defs>
+            <filter id="glow4"><feGaussianBlur stdDeviation="6" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect x="40" y="40" width="320" height="220" rx="6" fill="rgba(153,0,255,0.04)" stroke="rgba(153,0,255,0.2)" stroke-width="1"/>
+          <text x="50%" y="38%" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(153,0,255,0.6)" letter-spacing="5">★ BOUTIQUE ★</text>
+          <text x="50%" y="57%" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="44" fill="#9900ff" filter="url(#glow4)">ZARA</text>
+          <text x="50%" y="72%" text-anchor="middle" font-family="sans-serif" font-weight="600" font-size="16" fill="rgba(153,0,255,0.8)" letter-spacing="10">FASHION</text>
+          <text x="50%" y="86%" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(153,0,255,0.5)" letter-spacing="3">3D LETTER SIGNAGE</text>
+        </svg>
+        <div class="portfolio-overlay"><span style="font-family:'Orbitron',monospace;font-size:12px;color:var(--purple);letter-spacing:2px;text-shadow:0 0 10px var(--purple);">BOUTIQUE SIGNAGE</span></div>
+      </div>
+
+      <div class="portfolio-item reveal" style="transition-delay:0.5s;aspect-ratio:4/3;grid-column:span 1 md:grid-column:span 2;" >
+        <svg viewBox="0 0 400 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+          <rect width="400" height="300" fill="#080812"/>
+          <defs>
+            <filter id="glow5"><feGaussianBlur stdDeviation="5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect x="0" y="90" width="400" height="120" fill="rgba(255,102,0,0.04)"/>
+          <text x="50%" y="46%" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,102,0,0.6)" letter-spacing="8">RESTAURANT</text>
+          <text x="50%" y="63%" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="40" fill="#ff6600" filter="url(#glow5)">SPICE ROUTE</text>
+          <line x1="40" y1="200" x2="360" y2="200" stroke="rgba(255,102,0,0.25)" stroke-width="1"/>
+          <text x="50%" y="82%" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(255,102,0,0.5)" letter-spacing="3">ILLUMINATED SHOP SIGNAGE</text>
+        </svg>
+        <div class="portfolio-overlay"><span style="font-family:'Orbitron',monospace;font-size:12px;color:#ff6600;letter-spacing:2px;">RESTAURANT SIGN</span></div>
+      </div>
+
+      <div class="portfolio-item reveal" style="transition-delay:0.6s;aspect-ratio:4/3;">
+        <svg viewBox="0 0 400 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+          <rect width="400" height="300" fill="#030812"/>
+          <defs>
+            <filter id="glow6"><feGaussianBlur stdDeviation="5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <text x="50%" y="38%" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(0,102,255,0.7)" letter-spacing="5">DIGITAL CLINIC</text>
+          <text x="50%" y="57%" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="38" fill="#0066ff" filter="url(#glow6)">MEDCARE</text>
+          <path d="M 180 170 L 220 170 M 200 150 L 200 190" stroke="#4d94ff" stroke-width="4" stroke-linecap="round" filter="url(#glow6)"/>
+          <text x="50%" y="84%" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(0,102,255,0.5)" letter-spacing="3">LED CLINIC SIGN</text>
+        </svg>
+        <div class="portfolio-overlay"><span style="font-family:'Orbitron',monospace;font-size:12px;color:#4d94ff;letter-spacing:2px;">CLINIC LED SIGN</span></div>
+      </div>
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="https://wa.me/919927364055?text=I%20want%20to%20see%20more%20portfolio%20work" target="_blank" class="btn-cyan">
+        VIEW FULL PORTFOLIO →
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="neon-divider"></div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="py-24 px-4 relative overflow-hidden" style="background:linear-gradient(135deg,#050508,#070710);">
+  <div style="position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(0,245,255,0.04),transparent 70%);pointer-events:none;"></div>
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- LEFT: TEXT -->
+      <div class="reveal-left">
+        <div class="section-tag mb-3">⬡ WHO WE ARE ⬡</div>
+        <h2 class="section-heading mb-6" style="font-size:clamp(28px,4vw,44px);">ABOUT <span class="neon-cyan">MALIK ADVERTISING</span></h2>
+        <div style="font-family:'Inter',sans-serif;color:rgba(255,255,255,0.65);font-size:15px;line-height:1.9;margin-bottom:20px;">
+          Based in the heart of <strong style="color:var(--cyan);">Paharganj, New Delhi</strong>, Malik Advertising has been transforming business frontages into brilliant visual landmarks for over 15 years. We are Delhi's most trusted premium signage studio — combining artisanal craftsmanship with modern LED and 3D technology.
+        </div>
+        <div style="font-family:'Inter',sans-serif;color:rgba(255,255,255,0.65);font-size:15px;line-height:1.9;margin-bottom:28px;">
+          From a small clinic in Connaught Place to a multi-chain retail brand in Select Citywalk, we've helped hundreds of businesses across Delhi NCR stand out with signage that <strong style="color:var(--magenta);">speaks before you do</strong>. Our in-house team of designers, fabricators, and installation specialists ensure every sign is a masterpiece.
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="btn-cyan">GET IN TOUCH</a>
+          <a href="https://wa.me/919927364055" target="_blank" class="btn-magenta">WHATSAPP US</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: VISUAL CARD -->
+      <div class="reveal-right">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,245,255,0.2);border-radius:16px;padding:32px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;right:0;width:150px;height:150px;background:radial-gradient(circle,rgba(0,245,255,0.08),transparent 70%);"></div>
+          <div style="position:absolute;bottom:0;left:0;width:150px;height:150px;background:radial-gradient(circle,rgba(255,0,255,0.06),transparent 70%);"></div>
+          <div style="font-family:'Orbitron',monospace;font-size:11px;letter-spacing:3px;color:var(--cyan);margin-bottom:24px;text-shadow:0 0 8px var(--cyan);">OUR CORE VALUES</div>
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-4">
+              <div style="width:36px;height:36px;border:1px solid var(--cyan);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">🎯</div>
+              <div>
+                <div style="font-family:'Orbitron',monospace;font-size:11px;color:var(--cyan);letter-spacing:1px;">PRECISION</div>
+                <div style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);margin-top:2px;">Every millimeter matters in our craft</div>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(0,245,255,0.1);"></div>
+            <div class="flex items-center gap-4">
+              <div style="width:36px;height:36px;border:1px solid var(--magenta);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">✨</div>
+              <div>
+                <div style="font-family:'Orbitron',monospace;font-size:11px;color:var(--magenta);letter-spacing:1px;">INNOVATION</div>
+                <div style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);margin-top:2px;">Cutting-edge technology meets artisan skill</div>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(255,0,255,0.1);"></div>
+            <div class="flex items-center gap-4">
+              <div style="width:36px;height:36px;border:1px solid var(--green);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">🤝</div>
+              <div>
+                <div style="font-family:'Orbitron',monospace;font-size:11px;color:var(--green);letter-spacing:1px;">INTEGRITY</div>
+                <div style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);margin-top:2px;">Transparent pricing, honest timelines always</div>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(0,255,136,0.1);"></div>
+            <div class="flex items-center gap-4">
+              <div style="width:36px;height:36px;border:1px solid var(--purple);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">🌟</div>
+              <div>
+                <div style="font-family:'Orbitron',monospace;font-size:11px;color:var(--purple);letter-spacing:1px;">EXCELLENCE</div>
+                <div style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);margin-top:2px;">500+ successful projects & counting</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="neon-divider"></div>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="py-24 px-4" style="background:linear-gradient(180deg,#070710 0%,#050508 100%);">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="section-tag mb-3">⬡ CLIENT LOVE ⬡</div>
+      <h2 class="section-heading" style="font-size:clamp(28px,5vw,48px);">WHAT CLIENTS <span class="neon-purple">SAY</span></h2>
+      <div class="sep-dots mt-4">• • •</div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="testimonial-card reveal" style="transition-delay:0.1s;">
+        <div class="stars mb-3">★★★★★</div>
+        <p style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:20px;">"Malik Advertising transformed our restaurant entrance completely. The 3D LED sign they made attracts customers from 3 blocks away. Exceptional work!"</p>
+        <div style="display:flex;align-items:center;gap-10px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--purple));display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:14px;font-weight:700;color:#000;flex-shrink:0;">RS</div>
+          <div style="margin-left:12px;">
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;color:#fff;">Rajesh Sharma</div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(153,0,255,0.7);">Owner, Spice Route Restaurant</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal" style="transition-delay:0.2s;">
+        <div class="stars mb-3">★★★★★</div>
+        <p style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:20px;">"Best signage company in Paharganj! Delivered our entire showroom signage in just 5 days. Quality is top-notch and the neon effect is breathtaking."</p>
+        <div style="display:flex;align-items:center;">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--magenta),var(--orange));display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:14px;font-weight:700;color:#000;flex-shrink:0;">PG</div>
+          <div style="margin-left:12px;">
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;color:#fff;">Priya Gupta</div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(153,0,255,0.7);">Director, Zara Fashion Boutique</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal" style="transition-delay:0.3s;">
+        <div class="stars mb-3">★★★★★</div>
+        <p style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:20px;">"Professional team, fair pricing, and amazing results. Our clinic's LED signage is now the most recognizable in the area. Highly recommend Malik Advertising!"</p>
+        <div style="display:flex;align-items:center;">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--electric-blue));display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:14px;font-weight:700;color:#000;flex-shrink:0;">DM</div>
+          <div style="margin-left:12px;">
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;color:#fff;">Dr. Manish Verma</div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(153,0,255,0.7);">Owner, MedCare Clinic</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal" style="transition-delay:0.4s;">
+        <div class="stars mb-3">★★★★★</div>
+        <p style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:20px;">"We got acrylic 3D letters for all 8 of our coffee branches and every single one looks stunning. Consistent quality, great support, and on-time delivery always."</p>
+        <div style="display:flex;align-items:center;">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--green));display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-size:14px;font-weight:700;color:#000;flex-shrink:0;">AK</div>
+          <div style="margin-left:12px;">
+            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;color:#fff;">Anita Kapoor</div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(153,0,255,0.7);">Founder, Aroma Café Chain</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="neon-divider"></div>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="py-24 px-4 relative" style="background:linear-gradient(135deg,#050508,#070710);">
+  <div style="position:absolute;left:-100px;top:50%;transform:translateY(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(255,0,255,0.04),transparent 70%);pointer-events:none;"></div>
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="text-center mb-16 reveal">
+      <div class="section-tag mb-3">⬡ REACH US ⬡</div>
+      <h2 class="section-heading" style="font-size:clamp(28px,5vw,48px);">GET IN <span class="neon-cyan">TOUCH</span></h2>
+      <div class="sep-dots mt-4">• • •</div>
+      <p style="margin-top:16px;color:rgba(255,255,255,0.5);font-size:16px;font-family:'Inter',sans-serif;">Ready to light up your business? Contact us for a free consultation and quote.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- LEFT: CONTACT INFO + FORM -->
+      <div class="reveal-left">
+        <!-- CONTACT DETAILS -->
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,245,255,0.15);border-radius:12px;padding:28px;margin-bottom:24px;">
+          <div style="font-family:'Orbitron',monospace;font-size:11px;letter-spacing:3px;color:var(--cyan);margin-bottom:20px;">CONTACT DETAILS</div>
+          <div class="flex flex-col gap-5">
+            <div class="flex items-start gap-4">
+              <span style="font-size:20px;flex-shrink:0;margin-top:2px;">📍</span>
+              <div>
+                <div style="font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:4px;">ADDRESS</div>
+                <div style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.8);line-height:1.6;">3025/2, Ground Floor, Gali No. 2,<br>Chuna Mandi, Paharganj,<br>New Delhi - 110055</div>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(0,245,255,0.08);"></div>
+            <div class="flex items-start gap-4">
+              <span style="font-size:20px;flex-shrink:0;">📞</span>
+              <div>
+                <div style="font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:4px;">PHONE</div>
+                <div class="flex flex-col gap-1">
+                  <a href="tel:01147093060" style="font-family:'Inter',sans-serif;font-size:14px;color:var(--cyan);text-decoration:none;text-shadow:0 0 8px var(--cyan);">011-47093060</a>
+                  <a href="tel:9310042890" style="font-family:'Inter',sans-serif;font-size:14px;color:var(--cyan);text-decoration:none;text-shadow:0 0 8px var(--cyan);">+91 93100 42890</a>
+                </div>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(0,245,255,0.08);"></div>
+            <div class="flex items-start gap-4">
+              <span style="font-size:20px;flex-shrink:0;">💬</span>
+              <div>
+                <div style="font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:4px;">WHATSAPP</div>
+                <div class="flex flex-col gap-1">
+                  <a href="https://wa.me/919927364055" target="_blank" style="font-family:'Inter',sans-serif;font-size:14px;color:var(--green);text-decoration:none;text-shadow:0 0 8px var(--green);">+91 99273 64055</a>
+                  <a href="https://wa.me/919634485692" target="_blank" style="font-family:'Inter',sans-serif;font-size:14px;color:var(--green);text-decoration:none;text-shadow:0 0 8px var(--green);">+91 96344 85692</a>
+                </div>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(0,245,255,0.08);"></div>
+            <div class="flex items-start gap-4">
+              <span style="font-size:20px;flex-shrink:0;">✉️</span>
+              <div>
+                <div style="font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:4px;">EMAIL</div>
+                <a href="mailto:malikadvertising.in.co@gmail.com" style="font-family:'Inter',sans-serif;font-size:13px;color:var(--magenta);text-decoration:none;word-break:break-all;text-shadow:0 0 8px var(--magenta);">malikadvertising.in.co@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAP -->
+        <div class="map-placeholder reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.678!2d77.2115!3d28.6448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM4JzQxLjMiTiA3N8KwMTInNDEuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
+            width="100%" height="280"
+            style="border:0;border-radius:10px;filter:invert(90%) hue-rotate(180deg);opacity:0.85;"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- RIGHT: CONTACT FORM -->
+      <div class="reveal-right">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,245,255,0.2);border-radius:12px;padding:36px;">
+          <div style="font-family:'Orbitron',monospace;font-size:11px;letter-spacing:3px;color:var(--cyan);margin-bottom:24px;text-shadow:0 0 8px var(--cyan);">SEND US A MESSAGE</div>
+          <form id="contact-form" onsubmit="submitForm(event)" class="flex flex-col gap-5">
+            <div>
+              <label style="font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px;">YOUR NAME *</label>
+              <input type="text" id="fname" class="form-input" placeholder="Enter your full name" required>
+            </div>
+            <div>
+              <label style="font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px;">PHONE NUMBER *</label>
+              <input type="tel" id="fphone" class="form-input" placeholder="Your mobile number" required>
+            </div>
+            <div>
+              <label style="font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px;">EMAIL ADDRESS</label>
+              <input type="email" id="femail" class="form-input" placeholder="your@email.com">
+            </div>
+            <div>
+              <label style="font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px;">TYPE OF SIGNAGE</label>
+              <select id="ftype" class="form-input" style="appearance:none;cursor:pointer;">
+                <option value="" style="background:#0a0a1a;">Select signage type</option>
+                <option value="3d" style="background:#0a0a1a;">3D Boards / 3D Letters</option>
+                <option value="led" style="background:#0a0a1a;">LED Boards & Displays</option>
+                <option value="neon" style="background:#0a0a1a;">Neon Light Boards</option>
+                <option value="acrylic" style="background:#0a0a1a;">Acrylic & Backlit Signs</option>
+                <option value="shop" style="background:#0a0a1a;">Shop Front Signage</option>
+                <option value="custom" style="background:#0a0a1a;">Custom Advertising Solutions</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px;">YOUR MESSAGE *</label>
+              <textarea id="fmsg" class="form-input" rows="4" placeholder="Describe your signage requirements, size, location, etc..." required style="resize:vertical;"></textarea>
+            </div>
+            <button type="submit" class="btn-cyan" style="width:100%;text-align:center;padding:14px;font-size:12px;border:none;cursor:pointer;">
+              🚀 SEND MESSAGE
+            </button>
+            <a href="https://wa.me/919927364055?text=Hi%2C%20I%20need%20a%20quote%20for%20signage" target="_blank" class="btn-green" style="width:100%;justify-content:center;padding:14px;font-size:12px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              OR CHAT DIRECTLY ON WHATSAPP
+            </a>
+          </form>
+          <div id="form-success" style="display:none;text-align:center;padding:24px;">
+            <div style="font-size:48px;margin-bottom:16px;">✅</div>
+            <div style="font-family:'Orbitron',monospace;font-size:14px;color:var(--green);text-shadow:0 0 10px var(--green);margin-bottom:8px;">MESSAGE SENT!</div>
+            <div style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.6);">We'll get back to you within 24 hours.<br>Or WhatsApp us for instant response.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="neon-divider"></div>
+
+<!-- ============ FOOTER ============ -->
+<footer style="background:#030306;padding:60px 16px 24px;">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <!-- LOGO COL -->
+      <div>
+        <div class="flex items-center gap-3 mb-5">
+          <div style="width:44px;height:44px;border:2px solid var(--cyan);border-radius:8px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 15px rgba(0,245,255,0.4);">
+            <span style="font-family:'Orbitron',monospace;font-size:18px;font-weight:900;color:var(--cyan);">M</span>
+          </div>
+          <div>
+            <div style="font-family:'Orbitron',monospace;font-size:16px;font-weight:700;color:#fff;letter-spacing:2px;">MALIK</div>
+            <div style="font-family:'Rajdhani',sans-serif;font-size:10px;letter-spacing:3px;color:var(--cyan);">ADVERTISING</div>
+          </div>
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.45);line-height:1.8;margin-bottom:20px;">A Complete Solution for all your premium signage needs in Delhi NCR. 15+ years of crafting iconic visual landmarks.</p>
+        <div style="font-family:'Orbitron',monospace;font-size:10px;letter-spacing:3px;color:var(--magenta);text-shadow:0 0 8px var(--magenta);">A COMPLETE SOLUTION</div>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:11px;letter-spacing:3px;color:var(--cyan);margin-bottom:20px;text-shadow:0 0 8px var(--cyan);">QUICK LINKS</div>
+        <div class="flex flex-col gap-3">
+          <a href="#home" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">→ Home</a>
+          <a href="#services" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">→ Services</a>
+          <a href="#portfolio" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">→ Portfolio</a>
+          <a href="#about" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">→ About Us</a>
+          <a href="#contact" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">→ Contact</a>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:11px;letter-spacing:3px;color:var(--magenta);margin-bottom:20px;text-shadow:0 0 8px var(--magenta);">SERVICES</div>
+        <div class="flex flex-col gap-3">
+          <span style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);">→ 3D Letter Boards</span>
+          <span style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);">→ LED Boards & Displays</span>
+          <span style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);">→ Neon Light Boards</span>
+          <span style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);">→ Acrylic & Backlit Signs</span>
+          <span style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);">→ Shop Front Signage</span>
+          <span style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);">→ Custom Ad Solutions</span>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:11px;letter-spacing:3px;color:var(--green);margin-bottom:20px;text-shadow:0 0 8px var(--green);">CONTACT US</div>
+        <div class="flex flex-col gap-4">
+          <div style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;">📍 3025/2, Gali No. 2, Chuna Mandi,<br>Paharganj, New Delhi - 110055</div>
+          <div>
+            <a href="tel:01147093060" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;display:block;">📞 011-47093060</a>
+            <a href="tel:9310042890" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;display:block;">📞 +91 93100 42890</a>
+          </div>
+          <div>
+            <a href="https://wa.me/919927364055" target="_blank" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;display:block;">💬 +91 99273 64055</a>
+            <a href="https://wa.me/919634485692" target="_blank" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;display:block;">💬 +91 96344 85692</a>
+          </div>
+          <a href="mailto:malikadvertising.in.co@gmail.com" style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.5);text-decoration:none;word-break:break-all;">✉️ malikadvertising.in.co@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div style="border-top:1px solid rgba(0,245,255,0.1);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
+      <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.3);">
+        © 2025 Malik Advertising. All rights reserved. | New Delhi, India
+      </div>
+      <div style="font-family:'Orbitron',monospace;font-size:10px;letter-spacing:2px;color:rgba(0,245,255,0.4);">
+        MADE WITH <span style="color:var(--magenta);">♥</span> IN DELHI
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT BUTTON ============ -->
+<div class="whatsapp-float">
+  <div class="whatsapp-options" id="wa-options">
+    <a href="https://wa.me/919927364055?text=Hello%2C%20I%20want%20to%20enquire%20about%20signage" target="_blank" class="whatsapp-option">
+      <div class="wa-dot"></div>
+      <span>+91 99273 64055</span>
+    </a>
+    <a href="https://wa.me/919634485692?text=Hello%2C%20I%20want%20to%20enquire%20about%20signage" target="_blank" class="whatsapp-option">
+      <div class="wa-dot"></div>
+      <span>+91 96344 85692</span>
+    </a>
+  </div>
+  <div class="whatsapp-main-btn" id="wa-btn" onclick="toggleWhatsApp()" title="Chat on WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </div>
+</div>
+
+<!-- ============ JAVASCRIPT ============ -->
+<script>
+  // NAVBAR SCROLL
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // MOBILE MENU
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+  }
+
+  // WHATSAPP TOGGLE
+  function toggleWhatsApp() {
+    const opts = document.getElementById('wa-options');
+    opts.classList.toggle('open');
+  }
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.whatsapp-float')) {
+      document.getElementById('wa-options').classList.remove('open');
+    }
+  });
+
+  // PARTICLES
+  (function() {
+    const container = document.getElementById('particles');
+    const colors = ['#00f5ff', '#ff00ff', '#00ff88', '#9900ff', '#0066ff'];
+    for (let i = 0; i < 50; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.top = Math.random() * 100 + '%';
+      p.style.setProperty('--dur', (3 + Math.random() * 5) + 's');
+      p.style.setProperty('--delay', (Math.random() * 5) + 's');
+      p.style.background = colors[Math.floor(Math.random() * colors.length)];
+      p.style.boxShadow = `0 0 6px ${colors[Math.floor(Math.random() * colors.length)]}`;
+      p.style.width = (Math.random() * 3 + 1) + 'px';
+      p.style.height = p.style.width;
+      p.style.opacity = Math.random() * 0.7 + 0.3;
+      container.appendChild(p);
+    }
+  })();
+
+  // INTERSECTION OBSERVER FOR REVEAL ANIMATIONS
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+    observer.observe(el);
+  });
+
+  // COUNTER ANIMATION
+  function animateCounter(el, target, duration = 2000) {
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) {
+        el.textContent = target + '+';
+        clearInterval(timer);
+      } else {
+        el.textContent = Math.floor(start) + '+';
+      }
+    }, 16);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = parseInt(entry.target.dataset.target);
+        animateCounter(entry.target, target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.counter[data-target]').forEach(el => {
+    counterObserver.observe(el);
+  });
+
+  // CONTACT FORM
+  function submitForm(e) {
+    e.preventDefault();
+    const name = document.getElementById('fname').value;
+    const phone = document.getElementById('fphone').value;
+    const msg = document.getElementById('fmsg').value;
+    const type = document.getElementById('ftype').value;
+    const email = document.getElementById('femail').value;
+
+    // Open WhatsApp with form data
+    const waMsg = encodeURIComponent(
+      `*New Enquiry from Website*\n\n` +
+      `*Name:* ${name}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Email:* ${email || 'Not provided'}\n` +
+      `*Signage Type:* ${type || 'Not specified'}\n` +
+      `*Message:* ${msg}`
+    );
+    window.open(`https://wa.me/919927364055?text=${waMsg}`, '_blank');
+
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+
+  // SMOOTH SCROLL for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
