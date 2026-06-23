@@ -578,29 +578,50 @@
     .gallery-card { width: 78vw; }
   }
 
-  .gallery-marquee {
+  .gallery-rivers {
+    display: grid;
+    gap: 22px;
+    margin-top: 12px;
+  }
+  .gallery-river {
     position: relative;
+    overflow: hidden;
+    padding: 10px 0 22px;
+    border-radius: 18px;
+    border: 1px solid rgba(0,245,255,0.12);
+    background: rgba(255,255,255,0.02);
   }
-  .gallery-marquee::before,
-  .gallery-marquee::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: min(12vw, 140px);
-    z-index: 2;
-    pointer-events: none;
+  .gallery-viewport {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: grab;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    touch-action: pan-y;
+    padding-bottom: 4px;
   }
-  .gallery-marquee::before {
-    left: 0;
-    background: linear-gradient(90deg, rgba(5,5,8,1) 0%, rgba(5,5,8,0) 100%);
+  .gallery-viewport::-webkit-scrollbar { display: none; }
+  .gallery-viewport.dragging { cursor: grabbing; }
+  .gallery-viewport.dragging .gallery-card { pointer-events: none; }
+
+  .gallery-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    padding: 0 16px;
   }
-  .gallery-marquee::after {
-    right: 0;
-    background: linear-gradient(270deg, rgba(5,5,8,1) 0%, rgba(5,5,8,0) 100%);
-  }
+
   .gallery-track.is-animated {
     will-change: scroll-position;
+  }
+  .gallery-card {
+    flex: 0 0 auto;
+    width: 320px;
+    scroll-snap-align: center;
+  }
+  @media (max-width: 640px) {
+    .gallery-card { width: 76vw; }
   }
   .gallery-card.is-clone {
     pointer-events: none;
@@ -1238,79 +1259,155 @@
     </div>
   </div>
 
-  <div class="gallery-marquee">
-  <div class="gallery-viewport reveal" id="gallery-viewport">
-    <div class="gallery-track" id="gallery-track">
-      <div class="portfolio-item gallery-card" data-index="0" style="aspect-ratio:4/3;">
-        <img src="board1.jpeg" alt="Board 01" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 01</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="1" style="aspect-ratio:4/3;">
-        <img src="board2.jpeg" alt="Board 02" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 02</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="2" style="aspect-ratio:4/3;">
-        <img src="board3.jpeg" alt="Board 03" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 03</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="3" style="aspect-ratio:4/3;">
-        <img src="board4.jpeg" alt="Board 04" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 04</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="4" style="aspect-ratio:4/3;">
-        <img src="board5.jpeg" alt="Board 05" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 05</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="5" style="aspect-ratio:4/3;">
-        <img src="board6.jpeg" alt="Board 06" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 06</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="6" style="aspect-ratio:4/3;">
-        <img src="board7.jpeg" alt="Board 07" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 07</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="7" style="aspect-ratio:4/3;">
-        <img src="board8.jpeg" alt="Board 08" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 08</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="8" style="aspect-ratio:4/3;">
-        <img src="board9.jpeg" alt="Board 09" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 09</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="9" style="aspect-ratio:4/3;">
-        <img src="board10.jpeg" alt="Board 10" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 10</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="10" style="aspect-ratio:4/3;">
-        <img src="board11.jpeg" alt="Board 11" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 11</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="11" style="aspect-ratio:4/3;">
-        <img src="board12.jpeg" alt="Board 12" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 12</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="12" style="aspect-ratio:4/3;">
-        <img src="board13.jpeg" alt="Board 13" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 13</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="13" style="aspect-ratio:4/3;">
-        <img src="board14.jpeg" alt="Board 14" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 14</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="14" style="aspect-ratio:4/3;">
-        <img src="board15.jpeg" alt="Board 15" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 15</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="15" style="aspect-ratio:4/3;">
-        <img src="board16.jpeg" alt="Board 16" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 16</span></div>
-      </div>
-      <div class="portfolio-item gallery-card" data-index="16" style="aspect-ratio:4/3;">
-        <img src="board17.jpeg" alt="Board 17" loading="lazy">
-        <div class="portfolio-overlay"><span>BOARD 17</span></div>
+  <div class="gallery-rivers">
+    <div class="gallery-river reveal river-forward">
+      <div class="gallery-viewport" data-direction="forward">
+        <div class="gallery-track" id="gallery-track-top">
+          <div class="portfolio-item gallery-card" data-index="0" style="aspect-ratio:4/3;">
+            <img src="board1.jpeg" alt="Board 01" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 01</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="1" style="aspect-ratio:4/3;">
+            <img src="board2.jpeg" alt="Board 02" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 02</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="2" style="aspect-ratio:4/3;">
+            <img src="board3.jpeg" alt="Board 03" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 03</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="3" style="aspect-ratio:4/3;">
+            <img src="board4.jpeg" alt="Board 04" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 04</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="4" style="aspect-ratio:4/3;">
+            <img src="board5.jpeg" alt="Board 05" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 05</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="5" style="aspect-ratio:4/3;">
+            <img src="board6.jpeg" alt="Board 06" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 06</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="6" style="aspect-ratio:4/3;">
+            <img src="board7.jpeg" alt="Board 07" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 07</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="7" style="aspect-ratio:4/3;">
+            <img src="board8.jpeg" alt="Board 08" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 08</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="8" style="aspect-ratio:4/3;">
+            <img src="board9.jpeg" alt="Board 09" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 09</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="9" style="aspect-ratio:4/3;">
+            <img src="board10.jpeg" alt="Board 10" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 10</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="10" style="aspect-ratio:4/3;">
+            <img src="board11.jpeg" alt="Board 11" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 11</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="11" style="aspect-ratio:4/3;">
+            <img src="board12.jpeg" alt="Board 12" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 12</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="12" style="aspect-ratio:4/3;">
+            <img src="board13.jpeg" alt="Board 13" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 13</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="13" style="aspect-ratio:4/3;">
+            <img src="board14.jpeg" alt="Board 14" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 14</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="14" style="aspect-ratio:4/3;">
+            <img src="board15.jpeg" alt="Board 15" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 15</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="15" style="aspect-ratio:4/3;">
+            <img src="board16.jpeg" alt="Board 16" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 16</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="16" style="aspect-ratio:4/3;">
+            <img src="board17.jpeg" alt="Board 17" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 17</span></div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="gallery-river reveal river-backward">
+      <div class="gallery-viewport" data-direction="backward">
+        <div class="gallery-track" id="gallery-track-bottom">
+          <div class="portfolio-item gallery-card" data-index="0" style="aspect-ratio:4/3;">
+            <img src="board1.jpeg" alt="Board 01" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 01</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="1" style="aspect-ratio:4/3;">
+            <img src="board2.jpeg" alt="Board 02" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 02</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="2" style="aspect-ratio:4/3;">
+            <img src="board3.jpeg" alt="Board 03" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 03</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="3" style="aspect-ratio:4/3;">
+            <img src="board4.jpeg" alt="Board 04" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 04</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="4" style="aspect-ratio:4/3;">
+            <img src="board5.jpeg" alt="Board 05" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 05</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="5" style="aspect-ratio:4/3;">
+            <img src="board6.jpeg" alt="Board 06" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 06</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="6" style="aspect-ratio:4/3;">
+            <img src="board7.jpeg" alt="Board 07" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 07</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="7" style="aspect-ratio:4/3;">
+            <img src="board8.jpeg" alt="Board 08" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 08</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="8" style="aspect-ratio:4/3;">
+            <img src="board9.jpeg" alt="Board 09" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 09</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="9" style="aspect-ratio:4/3;">
+            <img src="board10.jpeg" alt="Board 10" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 10</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="10" style="aspect-ratio:4/3;">
+            <img src="board11.jpeg" alt="Board 11" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 11</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="11" style="aspect-ratio:4/3;">
+            <img src="board12.jpeg" alt="Board 12" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 12</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="12" style="aspect-ratio:4/3;">
+            <img src="board13.jpeg" alt="Board 13" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 13</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="13" style="aspect-ratio:4/3;">
+            <img src="board14.jpeg" alt="Board 14" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 14</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="14" style="aspect-ratio:4/3;">
+            <img src="board15.jpeg" alt="Board 15" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 15</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="15" style="aspect-ratio:4/3;">
+            <img src="board16.jpeg" alt="Board 16" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 16</span></div>
+          </div>
+          <div class="portfolio-item gallery-card" data-index="16" style="aspect-ratio:4/3;">
+            <img src="board17.jpeg" alt="Board 17" loading="lazy">
+            <div class="portfolio-overlay"><span>BOARD 17</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1343,14 +1440,6 @@
         <div class="flex flex-wrap gap-4">
           <a href="#contact" class="btn-cyan">GET IN TOUCH</a>
           <a href="https://wa.me/919310042890" target="_blank" class="btn-amber">WHATSAPP US</a>
-          <a
-            href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.678!2d77.2115!3d28.6448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM4JzQxLjMiTiA3N8KwMTInNDEuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-green"
-          >
-            GET DIRECTIONS
-          </a>
         </div>
       </div>
 
@@ -1527,9 +1616,9 @@
         <!-- MAP -->
         <div class="map-placeholder reveal">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.678!2d77.2115!3d28.6448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM4JzQxLjMiTiA3N8KwMTInNDEuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d875.3741654610341!2d77.21144234436457!3d28.644843966998582!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfdd41007357f%3A0x8c4dba5c07ed8260!2sMalik%20Adversting!5e0!3m2!1sen!2sin!4v1782213566398!5m2!1sen!2sin"
             width="100%" height="280"
-            style="border:0;border-radius:10px;filter:invert(90%) hue-rotate(180deg);opacity:0.85;"
+            style="border:0;border-radius:10px;opacity:0.95;"
             allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
@@ -1734,125 +1823,156 @@
 
   // ============ GALLERY: DRAG-TO-SCROLL WITH MOMENTUM ============
   (function() {
-    const viewport = document.getElementById('gallery-viewport');
-    const track = document.getElementById('gallery-track');
-    if (!viewport || !track) return;
+    const riverViews = Array.from(document.querySelectorAll('.gallery-viewport')).map((viewport) => {
+      const track = viewport.querySelector('.gallery-track');
+      const direction = viewport.dataset.direction || 'forward';
+      return { viewport, track, direction };
+    }).filter(river => river.viewport && river.track);
+    if (!riverViews.length) return;
 
-    const originals = Array.from(track.querySelectorAll('.gallery-card'));
-    originals.forEach((card) => {
-      const clone = card.cloneNode(true);
-      clone.dataset.clone = 'true';
-      clone.setAttribute('aria-hidden', 'true');
-      clone.classList.add('is-clone');
-      track.appendChild(clone);
-    });
-    track.classList.add('is-animated');
-
-    let isDown = false;
-    let startX = 0;
-    let scrollStart = 0;
-    let lastX = 0;
-    let velocity = 0;
-    let momentumId = null;
-    let dragMoved = false;
-    let autoId = null;
-    let autoPaused = false;
-    let autoResumeId = null;
-
-    function pauseAuto(duration = 1800) {
-      autoPaused = true;
-      viewport.classList.add('user-scrolled');
-      clearTimeout(autoResumeId);
-      autoResumeId = setTimeout(() => {
-        autoPaused = false;
-        viewport.classList.remove('user-scrolled');
-      }, duration);
+    function buildLoop(track) {
+      const originals = Array.from(track.querySelectorAll('.gallery-card'));
+      originals.forEach((card) => {
+        const clone = card.cloneNode(true);
+        clone.dataset.clone = 'true';
+        clone.setAttribute('aria-hidden', 'true');
+        clone.classList.add('is-clone');
+        track.appendChild(clone);
+      });
+      track.classList.add('is-animated');
     }
 
-    function startMomentum() {
-      cancelAnimationFrame(momentumId);
-      function step() {
-        if (Math.abs(velocity) < 0.5) return;
-        viewport.scrollLeft += velocity;
-        velocity *= 0.95;
+    riverViews.forEach(({ viewport, track, direction }) => {
+      buildLoop(track);
+
+      let isDown = false;
+      let startX = 0;
+      let scrollStart = 0;
+      let lastX = 0;
+      let velocity = 0;
+      let momentumId = null;
+      let dragMoved = false;
+      let autoId = null;
+      let autoPaused = false;
+      let autoResumeId = null;
+
+      function pauseAuto(duration = 1800) {
+        autoPaused = true;
+        viewport.classList.add('user-scrolled');
+        clearTimeout(autoResumeId);
+        autoResumeId = setTimeout(() => {
+          autoPaused = false;
+          viewport.classList.remove('user-scrolled');
+        }, duration);
+      }
+
+      function startMomentum() {
+        cancelAnimationFrame(momentumId);
+        function step() {
+          if (Math.abs(velocity) < 0.5) return;
+          viewport.scrollLeft += velocity;
+          velocity *= 0.95;
+          momentumId = requestAnimationFrame(step);
+        }
         momentumId = requestAnimationFrame(step);
       }
-      momentumId = requestAnimationFrame(step);
-    }
 
-    function startAutoScroll() {
-      const speed = window.matchMedia('(max-width: 768px)').matches ? 0.28 : 0.45;
-      const step = () => {
-        if (!autoPaused && !isDown) {
-          const loopWidth = track.scrollWidth / 2;
-          if (loopWidth > 0) {
-            viewport.scrollLeft += speed;
-            if (viewport.scrollLeft >= loopWidth) {
-              viewport.scrollLeft -= loopWidth;
+      function startAutoScroll() {
+        const speed = window.matchMedia('(max-width: 768px)').matches ? 0.25 : 0.45;
+        const step = () => {
+          if (!autoPaused && !isDown) {
+            const loopWidth = track.scrollWidth / 2;
+            if (loopWidth <= 0) {
+              autoId = requestAnimationFrame(step);
+              return;
+            }
+
+            if (direction === 'backward') {
+              viewport.scrollLeft -= speed;
+              if (viewport.scrollLeft <= 0) {
+                viewport.scrollLeft += loopWidth;
+              }
+            } else {
+              viewport.scrollLeft += speed;
+              if (viewport.scrollLeft >= loopWidth) {
+                viewport.scrollLeft -= loopWidth;
+              }
             }
           }
-        }
+          autoId = requestAnimationFrame(step);
+        };
+        cancelAnimationFrame(autoId);
         autoId = requestAnimationFrame(step);
-      };
-      cancelAnimationFrame(autoId);
-      autoId = requestAnimationFrame(step);
-    }
-
-    viewport.addEventListener('mouseenter', () => pauseAuto(1200));
-    viewport.addEventListener('mouseleave', () => pauseAuto(900));
-
-    viewport.addEventListener('mousedown', (e) => {
-      isDown = true;
-      dragMoved = false;
-      pauseAuto(2200);
-      viewport.classList.add('dragging');
-      startX = e.pageX;
-      lastX = e.pageX;
-      scrollStart = viewport.scrollLeft;
-      velocity = 0;
-      cancelAnimationFrame(momentumId);
-    });
-
-    window.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const dx = e.pageX - startX;
-      if (Math.abs(dx) > 4) dragMoved = true;
-      viewport.scrollLeft = scrollStart - dx;
-      velocity = lastX - e.pageX;
-      lastX = e.pageX;
-    });
-
-    window.addEventListener('mouseup', () => {
-      if (!isDown) return;
-      isDown = false;
-      viewport.classList.remove('dragging');
-      startMomentum();
-      pauseAuto(1600);
-    });
-
-    viewport.addEventListener('touchstart', (e) => {
-      pauseAuto(1800);
-      startX = e.touches[0].pageX;
-      scrollStart = viewport.scrollLeft;
-    }, { passive: true });
-
-    viewport.addEventListener('touchmove', (e) => {
-      const dx = e.touches[0].pageX - startX;
-      viewport.scrollLeft = scrollStart - dx;
-    }, { passive: true });
-
-    viewport.addEventListener('wheel', () => { pauseAuto(); }, { passive: true });
-
-    // Prevent click-through firing the lightbox right after a drag
-    viewport.addEventListener('click', (e) => {
-      if (dragMoved) {
-        e.stopPropagation();
-        e.preventDefault();
       }
-    }, true);
 
-    startAutoScroll();
+      viewport.addEventListener('mouseenter', () => pauseAuto(1200));
+      viewport.addEventListener('mouseleave', () => pauseAuto(900));
+
+      viewport.addEventListener('mousedown', (e) => {
+        isDown = true;
+        dragMoved = false;
+        pauseAuto(2200);
+        viewport.classList.add('dragging');
+        startX = e.pageX;
+        lastX = e.pageX;
+        scrollStart = viewport.scrollLeft;
+        velocity = 0;
+        cancelAnimationFrame(momentumId);
+      });
+
+      viewport.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const dx = e.pageX - startX;
+        if (Math.abs(dx) > 4) dragMoved = true;
+        viewport.scrollLeft = scrollStart - dx;
+        velocity = lastX - e.pageX;
+        lastX = e.pageX;
+      });
+
+      viewport.addEventListener('mouseup', () => {
+        if (!isDown) return;
+        isDown = false;
+        viewport.classList.remove('dragging');
+        startMomentum();
+        pauseAuto(1600);
+      });
+
+      viewport.addEventListener('touchstart', (e) => {
+        pauseAuto(1800);
+        isDown = true;
+        dragMoved = false;
+        startX = e.touches[0].pageX;
+        scrollStart = viewport.scrollLeft;
+        velocity = 0;
+        cancelAnimationFrame(momentumId);
+      }, { passive: true });
+
+      viewport.addEventListener('touchmove', (e) => {
+        if (!isDown) return;
+        const dx = e.touches[0].pageX - startX;
+        if (Math.abs(dx) > 4) dragMoved = true;
+        viewport.scrollLeft = scrollStart - dx;
+      }, { passive: false });
+
+      viewport.addEventListener('touchend', () => {
+        if (!isDown) return;
+        isDown = false;
+        startMomentum();
+        pauseAuto(1600);
+      });
+
+      viewport.addEventListener('wheel', () => { pauseAuto(); }, { passive: true });
+
+      viewport.addEventListener('click', (e) => {
+        if (dragMoved) {
+          e.stopPropagation();
+          e.preventDefault();
+        }
+      }, true);
+
+      startAutoScroll();
+    });
   })();
 
   // ============ LIGHTBOX ============
