@@ -619,12 +619,18 @@
     flex: 0 0 auto;
     width: 320px;
     scroll-snap-align: center;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
   @media (max-width: 640px) {
     .gallery-card { width: 76vw; }
   }
   .gallery-card.is-clone {
     pointer-events: none;
+  }
+  .gallery-card,
+  .gallery-card img {
+    pointer-events: auto;
   }
   .gallery-card.is-clone .portfolio-overlay {
     opacity: 0;
@@ -1629,35 +1635,36 @@
       <div class="reveal-right">
         <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,245,255,0.2);border-radius:12px;padding:36px;">
           <div style="font-family:'Orbitron',monospace;font-size:11px;letter-spacing:3px;color:var(--cyan);margin-bottom:24px;text-shadow:0 0 8px var(--cyan);">SEND US A MESSAGE</div>
-          <div id="contact-form" class="flex flex-col gap-5">
+          <form id="contact-form" class="flex flex-col gap-5" novalidate>
             <div>
               <label style="font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px;">YOUR NAME</label>
-              <input type="text" id="fname" class="form-input" placeholder="Enter your full name">
+              <input type="text" id="fname" class="form-input" placeholder="Enter your full name" autocomplete="name" required>
             </div>
             <div>
               <label style="font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px;">PHONE NUMBER</label>
-              <input type="tel" id="fphone" class="form-input" placeholder="Your mobile number">
+              <input type="tel" id="fphone" class="form-input" placeholder="Your mobile number" autocomplete="tel" inputmode="tel" required>
             </div>
             <div>
               <label style="font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px;">EMAIL ADDRESS</label>
-              <input type="email" id="femail" class="form-input" placeholder="your@email.com">
+              <input type="email" id="femail" class="form-input" placeholder="your@email.com" autocomplete="email" required>
             </div>
             <div>
               <label style="font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px;">YOUR MESSAGE</label>
-              <textarea id="fmsg" class="form-input" rows="4" placeholder="Describe your signage requirements, size, location, etc..." style="resize:vertical;"></textarea>
+              <textarea id="fmsg" class="form-input" rows="4" placeholder="Describe your signage requirements, size, location, etc..." style="resize:vertical;" required></textarea>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:12px;">
-              <button type="button" onclick="sendEmail()" class="btn-amber" style="flex:1;min-width:160px;padding:14px;font-size:12px;justify-content:center;">
+              <button type="submit" class="btn-amber" style="flex:1;min-width:160px;padding:14px;font-size:12px;justify-content:center;">
                 ✉️ SEND EMAIL
               </button>
               <button type="button" onclick="sendWhatsApp()" class="btn-green" style="flex:1;min-width:160px;padding:14px;font-size:12px;justify-content:center;">
                 💬 WHATSAPP NOW
               </button>
             </div>
+            <div id="form-status" aria-live="polite" style="font-family:'Inter',sans-serif;font-size:13px;min-height:20px;color:rgba(255,255,255,0.55);line-height:1.6;"></div>
             <a href="tel:93100 42890" class="btn-cyan" style="width:100%;justify-content:center;padding:14px;font-size:12px;text-align:center;">
               📞 CALL NOW
             </a>
-          </div>
+          </form>
           <div id="form-helper" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;margin-top:10px;">
             Prefer a quick response? Call directly without filling the form, or send a message when you are ready.
           </div>
@@ -1971,6 +1978,16 @@
         }
       }, true);
 
+      viewport.addEventListener('touchend', (e) => {
+        if (dragMoved) return;
+        const card = e.target.closest('.gallery-card:not(.is-clone)');
+        if (!card) return;
+        const index = Number(card.dataset.index || 0);
+        if (typeof window.openGalleryLightbox === 'function') {
+          window.openGalleryLightbox(index);
+        }
+      }, { passive: true });
+
       startAutoScroll();
     });
   })();
@@ -1988,7 +2005,7 @@
 
     let currentIndex = 0;
 
-    function openLightbox(index) {
+    function openGalleryLightbox(index) {
       currentIndex = (index + cards.length) % cards.length;
       const card = cards[currentIndex];
       const img = card.querySelector('img');
@@ -2002,17 +2019,18 @@
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
+    window.openGalleryLightbox = openGalleryLightbox;
 
     function closeLightbox() {
       lightbox.classList.remove('open');
       document.body.style.overflow = '';
     }
 
-    function showNext() { openLightbox(currentIndex + 1); }
-    function showPrev() { openLightbox(currentIndex - 1); }
+    function showNext() { openGalleryLightbox(currentIndex + 1); }
+    function showPrev() { openGalleryLightbox(currentIndex - 1); }
 
     cards.forEach((card, i) => {
-      card.addEventListener('click', () => openLightbox(i));
+      card.addEventListener('click', () => openGalleryLightbox(i));
     });
 
     closeBtn.addEventListener('click', closeLightbox);
@@ -2083,37 +2101,93 @@
   });
 
   // CONTACT BUTTONS
-  function sendEmail() {
-    const name = document.getElementById('fname').value;
-    const phone = document.getElementById('fphone').value;
-    const email = document.getElementById('femail').value;
-    const msg = document.getElementById('fmsg').value;
+  function cleanFormValue(value) {
+    return String(value || '')
+      .replace(/[\u0000-\u001F\u007F]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
 
-    const body = encodeURIComponent(
+  function getFormValues() {
+    return {
+      name: cleanFormValue(document.getElementById('fname').value),
+      phone: cleanFormValue(document.getElementById('fphone').value),
+      email: cleanFormValue(document.getElementById('femail').value),
+      msg: cleanFormValue(document.getElementById('fmsg').value),
+    };
+  }
+
+  function setFormStatus(message, type = 'neutral') {
+    const status = document.getElementById('form-status');
+    if (!status) return;
+    const colors = {
+      neutral: 'rgba(255,255,255,0.55)',
+      success: 'var(--green)',
+      error: '#ff6b6b',
+    };
+    status.textContent = message;
+    status.style.color = colors[type] || colors.neutral;
+  }
+
+  function validateContactForm(values) {
+    if (!values.name) return 'Please enter your name.';
+    if (!values.phone) return 'Please enter your phone number.';
+    if (!values.email) return 'Please enter your email address.';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) return 'Please enter a valid email address.';
+    if (!values.msg) return 'Please enter your message.';
+    return '';
+  }
+
+  function sendEmail() {
+    const { name, phone, email, msg } = getFormValues();
+
+    const subject = 'Website Enquiry';
+    const bodyText =
       `Hello Malik Advertising,\n\n` +
       `Name: ${name || '[Your Name]'}\n` +
       `Phone: ${phone || '[Your Phone]'}\n` +
       `Email: ${email || '[Your Email]'}\n\n` +
-      `Message:\n${msg || '[Your Message]'}\n`
-    );
+      `Message:\n${msg || '[Your Message]'}\n`;
 
-    window.location.href = `mailto:malikadvertising.in.co@gmail.com?subject=Website%20Enquiry&body=${body}`;
+    const mailtoUrl =
+      `mailto:malikadvertising.in.co@gmail.com?` +
+      `subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+
+    window.location.href = mailtoUrl;
   }
 
   function sendWhatsApp() {
-    const name = document.getElementById('fname').value;
-    const phone = document.getElementById('fphone').value;
-    const email = document.getElementById('femail').value;
-    const msg = document.getElementById('fmsg').value;
+    const { name, phone, email, msg } = getFormValues();
+    const error = validateContactForm({ name, phone, email, msg });
+    if (error) {
+      setFormStatus(error, 'error');
+      return;
+    }
 
     const waMsg = encodeURIComponent(
-      `Hello Malik Advertising,%0A%0A` +
-      `Name: ${name || '[Your Name]'}%0A` +
-      `Phone: ${phone || '[Your Phone]'}%0A` +
-      `Email: ${email || '[Your Email]'}%0A%0A` +
-      `Message: ${msg || '[Your Message]'}%0A`
+      `Hello Malik Advertising,\n\n` +
+      `Name: ${name || '[Your Name]'}\n` +
+      `Phone: ${phone || '[Your Phone]'}\n` +
+      `Email: ${email || '[Your Email]'}\n\n` +
+      `Message: ${msg || '[Your Message]'}\n`
     );
+    setFormStatus('Opening WhatsApp...', 'success');
     window.open(`https://wa.me/919310042890?text=${waMsg}`, '_blank');
+  }
+
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const values = getFormValues();
+      const error = validateContactForm(values);
+      if (error) {
+        setFormStatus(error, 'error');
+        return;
+      }
+      setFormStatus('Opening your email app...', 'success');
+      sendEmail();
+    });
   }
 
   // SMOOTH SCROLL for nav links
